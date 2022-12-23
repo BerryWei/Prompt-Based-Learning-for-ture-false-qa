@@ -23,3 +23,5 @@ with open('./data/true-false-qa-TEST.json', 'w', encoding='UTF-8') as f:
     json.dump(testData, f)
 
 print(f'Total nb. of datas = {nbData}')
+print(f'Total nb. of training datas = {len(trainData)}')
+print(f'Total nb. of testing datas = {len(testData)}')

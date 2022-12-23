@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name="HW3"
+#SBATCH --job-name="ADL final"
 #SBATCH --partition=v100-32g
 #SBATCH --ntasks=2
 #SBATCH --gres=gpu:1

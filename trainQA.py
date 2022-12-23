@@ -108,8 +108,13 @@ def main(args):
     #################################################
     ## Step 3. Define a Template
     #################################################
+    '''
+    text_template = '{"placeholder":"text_a"}，上述為{"mask"}。'
+    
+    '''
+    text_template = '{"placeholder":"text_a"} It was {"mask"}'
     promptTemplate = ManualTemplate(
-    text = '{"placeholder":"text_a"} It was {"mask"}',
+    text = text_template,
     tokenizer = tokenizer,
     )
 
@@ -119,8 +124,8 @@ def main(args):
     promptVerbalizer = ManualVerbalizer(
     classes = classes,
     label_words = {
-        "negative": ["bad"],
-        "positive": ["good", "wonderful", "great"],
+        "negative": ["錯誤"],
+        "positive": ["正確"],
     },
     tokenizer = tokenizer,
     )
@@ -145,6 +150,7 @@ def main(args):
         tokenizer_wrapper_class=WrapperClass,
         batch_size = args.batch_size,
         shuffle=True,
+        teacher_forcing = False,
     )
     valid_loader = PromptDataLoader(
         dataset = validDataset,
